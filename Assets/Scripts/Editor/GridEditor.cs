@@ -9,6 +9,7 @@ public class GridEditor : Editor
     Grid self;
     SerializedObject GridControllerObject;
     SerializedProperty GridsProp;
+    SerializedProperty LinkDataProp;
 
     private void OnEnable()
     {
@@ -16,6 +17,7 @@ public class GridEditor : Editor
         SerializedProperty ControllerProp = serializedObject.FindProperty("Controller");
         GridControllerObject = new SerializedObject(ControllerProp.objectReferenceValue);
         GridsProp = GridControllerObject.FindProperty("Grids");
+        LinkDataProp = GridControllerObject.FindProperty("LinkData");
     }
 
     public override void OnInspectorGUI()
@@ -121,7 +123,7 @@ public class GridEditor : Editor
         {
             if (GUILayout.Button("Forward", GUILayout.Width(100)))
             {
-                GridSettingEditor.NewGridObj(self.Controller, forwardSeek);
+                GridControllerEditor.NewGridObj(self.Controller, forwardSeek);
                 forwardLinked = true;
             }
         }
@@ -139,7 +141,7 @@ public class GridEditor : Editor
         {
             if (GUILayout.Button("Back", GUILayout.Width(100)))
             {
-                GridSettingEditor.NewGridObj(self.Controller, backSeek);
+                GridControllerEditor.NewGridObj(self.Controller, backSeek);
                 backLinked = true;
             }
         }
@@ -157,7 +159,7 @@ public class GridEditor : Editor
         {
             if (GUILayout.Button("Right", GUILayout.Width(100)))
             {
-                GridSettingEditor.NewGridObj(self.Controller, rightSeek);
+                GridControllerEditor.NewGridObj(self.Controller, rightSeek);
                 rightLinked = true;
             }
         }
@@ -175,7 +177,7 @@ public class GridEditor : Editor
         {
             if (GUILayout.Button("Left", GUILayout.Width(100)))
             {
-                GridSettingEditor.NewGridObj(self.Controller, leftSeek);
+                GridControllerEditor.NewGridObj(self.Controller, leftSeek);
                 leftLinked = true;
             }
         }
@@ -193,7 +195,7 @@ public class GridEditor : Editor
         {
             if (GUILayout.Button("Forward Right", GUILayout.Width(100)))
             {
-                GridSettingEditor.NewGridObj(self.Controller, forwardRightSeek);
+                GridControllerEditor.NewGridObj(self.Controller, forwardRightSeek);
                 forwardRightLinked = true;
             }
         }
@@ -211,7 +213,7 @@ public class GridEditor : Editor
         {
             if (GUILayout.Button("Forward Left", GUILayout.Width(100)))
             {
-                GridSettingEditor.NewGridObj(self.Controller, forwardLeftSeek);
+                GridControllerEditor.NewGridObj(self.Controller, forwardLeftSeek);
                 forwardLeftLinked = true;
             }
         }
@@ -229,7 +231,7 @@ public class GridEditor : Editor
         {
             if (GUILayout.Button("Back Right", GUILayout.Width(100)))
             {
-                GridSettingEditor.NewGridObj(self.Controller, backRightSeek);
+                GridControllerEditor.NewGridObj(self.Controller, backRightSeek);
                 backRightLinked = true;
             }
         }
@@ -247,7 +249,7 @@ public class GridEditor : Editor
         {
             if (GUILayout.Button("Back Left", GUILayout.Width(100)))
             {
-                GridSettingEditor.NewGridObj(self.Controller, backLeftSeek);
+                GridControllerEditor.NewGridObj(self.Controller, backLeftSeek);
                 backLeftLinked = true;
             }
         }
@@ -263,13 +265,13 @@ public class GridEditor : Editor
 
         if (GUI.changed)
         {
-            Undo.RecordObject(self.Controller, "Change GridControllLink");
             if (forwardLinked)
             {
                 if (!self.Controller.LinkData.Contains(forwardLink))
                 {
-                    GameObject line = GridSettingEditor.NewLinkObj(self.Controller, forwardLink);
+                    GameObject line = GridControllerEditor.NewLinkObj(self.Controller, forwardLink);
                     forwardLink.Obj = line;
+                    Undo.RecordObject(self.Controller, "Change GridControllLink");
                     self.Controller.LinkData.Add(forwardLink);
                 }
             }
@@ -278,14 +280,16 @@ public class GridEditor : Editor
                 GameObject line = self.Controller.LinkData[indexForwardLink].Obj;
                 if(line != null)
                     Undo.DestroyObjectImmediate(line);
+                Undo.RecordObject(self.Controller, "Change GridControllLink");
                 self.Controller.LinkData.RemoveAt(indexForwardLink);
             }
             if (backLinked)
             {
                 if (!self.Controller.LinkData.Contains(backLink))
                 {
-                    GameObject line = GridSettingEditor.NewLinkObj(self.Controller, backLink);
+                    GameObject line = GridControllerEditor.NewLinkObj(self.Controller, backLink);
                     backLink.Obj = line;
+                    Undo.RecordObject(self.Controller, "Change GridControllLink");
                     self.Controller.LinkData.Add(backLink);
                 }
             }
@@ -294,14 +298,16 @@ public class GridEditor : Editor
                 GameObject line = self.Controller.LinkData[indexBackLink].Obj;
                 if (line != null)
                     Undo.DestroyObjectImmediate(line);
+                Undo.RecordObject(self.Controller, "Change GridControllLink");
                 self.Controller.LinkData.RemoveAt(indexBackLink);
             }
             if (rightLinked)
             {
                 if (!self.Controller.LinkData.Contains(rightLink))
                 {
-                    GameObject line = GridSettingEditor.NewLinkObj(self.Controller, rightLink);
+                    GameObject line = GridControllerEditor.NewLinkObj(self.Controller, rightLink);
                     rightLink.Obj = line;
+                    Undo.RecordObject(self.Controller, "Change GridControllLink");
                     self.Controller.LinkData.Add(rightLink);
                 }
             }
@@ -310,14 +316,16 @@ public class GridEditor : Editor
                 GameObject line = self.Controller.LinkData[indexRightLink].Obj;
                 if (line != null)
                     Undo.DestroyObjectImmediate(line);
+                Undo.RecordObject(self.Controller, "Change GridControllLink");
                 self.Controller.LinkData.RemoveAt(indexRightLink);
             }
             if (leftLinked)
             {
                 if (!self.Controller.LinkData.Contains(leftLink))
                 {
-                    GameObject line = GridSettingEditor.NewLinkObj(self.Controller, leftLink);
+                    GameObject line = GridControllerEditor.NewLinkObj(self.Controller, leftLink);
                     leftLink.Obj = line;
+                    Undo.RecordObject(self.Controller, "Change GridControllLink");
                     self.Controller.LinkData.Add(leftLink);
                 }
             }
@@ -326,14 +334,16 @@ public class GridEditor : Editor
                 GameObject line = self.Controller.LinkData[indexLeftLink].Obj;
                 if (line != null)
                     Undo.DestroyObjectImmediate(line);
+                Undo.RecordObject(self.Controller, "Change GridControllLink");
                 self.Controller.LinkData.RemoveAt(indexLeftLink);
             }
             if (forwardRightLinked)
             {
                 if (!self.Controller.LinkData.Contains(forwardRightLink))
                 {
-                    GameObject line = GridSettingEditor.NewLinkObj(self.Controller, forwardRightLink);
+                    GameObject line = GridControllerEditor.NewLinkObj(self.Controller, forwardRightLink);
                     forwardRightLink.Obj = line;
+                    Undo.RecordObject(self.Controller, "Change GridControllLink");
                     self.Controller.LinkData.Add(forwardRightLink);
                 }
             }
@@ -342,14 +352,16 @@ public class GridEditor : Editor
                 GameObject line = self.Controller.LinkData[indexForwardRightLink].Obj;
                 if (line != null)
                     Undo.DestroyObjectImmediate(line);
+                Undo.RecordObject(self.Controller, "Change GridControllLink");
                 self.Controller.LinkData.RemoveAt(indexForwardRightLink);
             }
             if (forwardLeftLinked)
             {
                 if (!self.Controller.LinkData.Contains(forwardLeftLink))
                 {
-                    GameObject line = GridSettingEditor.NewLinkObj(self.Controller, forwardLeftLink);
+                    GameObject line = GridControllerEditor.NewLinkObj(self.Controller, forwardLeftLink);
                     forwardLeftLink.Obj = line;
+                    Undo.RecordObject(self.Controller, "Change GridControllLink");
                     self.Controller.LinkData.Add(forwardLeftLink);
                 }
             }
@@ -358,14 +370,16 @@ public class GridEditor : Editor
                 GameObject line = self.Controller.LinkData[indexForwardLeftLink].Obj;
                 if (line != null)
                     Undo.DestroyObjectImmediate(line);
+                Undo.RecordObject(self.Controller, "Change GridControllLink");
                 self.Controller.LinkData.RemoveAt(indexForwardLeftLink);
             }
             if (backRightLinked)
             {
                 if (!self.Controller.LinkData.Contains(backRightLink))
                 {
-                    GameObject line = GridSettingEditor.NewLinkObj(self.Controller, backRightLink);
+                    GameObject line = GridControllerEditor.NewLinkObj(self.Controller, backRightLink);
                     backRightLink.Obj = line;
+                    Undo.RecordObject(self.Controller, "Change GridControllLink");
                     self.Controller.LinkData.Add(backRightLink);
                 }
             }
@@ -374,14 +388,16 @@ public class GridEditor : Editor
                 GameObject line = self.Controller.LinkData[indexBackRightLink].Obj;
                 if (line != null)
                     Undo.DestroyObjectImmediate(line);
+                Undo.RecordObject(self.Controller, "Change GridControllLink");
                 self.Controller.LinkData.RemoveAt(indexBackRightLink);
             }
             if (backLeftLinked)
             {
                 if (!self.Controller.LinkData.Contains(backLeftLink))
                 {
-                    GameObject line = GridSettingEditor.NewLinkObj(self.Controller, backLeftLink);
+                    GameObject line = GridControllerEditor.NewLinkObj(self.Controller, backLeftLink);
                     backLeftLink.Obj = line;
+                    Undo.RecordObject(self.Controller, "Change GridControllLink");
                     self.Controller.LinkData.Add(backLeftLink);
                 }
             }
@@ -390,6 +406,7 @@ public class GridEditor : Editor
                 GameObject line = self.Controller.LinkData[indexBackLeftLink].Obj;
                 if (line != null)
                     Undo.DestroyObjectImmediate(line);
+                Undo.RecordObject(self.Controller, "Change GridControllLink");
                 self.Controller.LinkData.RemoveAt(indexBackLeftLink);
             }
             EditorUtility.SetDirty(self.Controller);

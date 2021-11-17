@@ -13,29 +13,31 @@ public class GridController : MonoBehaviour
     public Material LinkMat;
 
     public Vector2 Step = Vector2.one;
+    public Vector2 Offset;
+    public Vector2 StaggeredOffset;
 
     public List<Grid> Grids = new List<Grid>();
     public List<Link> LinkData = new List<Link>();
     public List<GameObject> LinkObj = new List<GameObject>();
 
-    public List<Grid> FindPathTo(Grid start, Grid end)
+    public List<Grid> FindPathTo(Grid start, Grid end, Func<Grid, Grid, bool> sameCostCompare = null)
     {
         if (!Grids.Contains(start) || !Grids.Contains(end))
             return null;
         HashSet<Vector2Int> discarded = new HashSet<Vector2Int>();
         List<GridInfo> cache = new List<GridInfo>();
         discarded.Add(start.Point);
-        return FindPathTo(new GridInfo(start, end), end, cache, discarded);
+        return FindPathTo(new GridInfo(start, end), end, sameCostCompare, cache, discarded);
     }
 
-    List<Grid> FindPathTo(GridInfo start, Grid end, List<GridInfo> cache, HashSet<Vector2Int> discarded, GridInfo current = null)
+    List<Grid> FindPathTo(GridInfo start, Grid end, Func<Grid, Grid, bool> sameCostCompare, List<GridInfo> cache, HashSet<Vector2Int> discarded, GridInfo current = null)
     {
         if (current == null)
             current = start;
         PushNeighborhood(current, end, cache, discarded);
         if (cache.Count == 0)
             return null;
-        current = CheckMinCostInfo(cache, out int index);
+        current = CheckMinCostInfo(cache, sameCostCompare, out int index);
         cache.RemoveAt(index);
         discarded.Add(current.Self.Point);
         if (current.Self == end)
@@ -49,10 +51,10 @@ public class GridController : MonoBehaviour
             }
             return route;
         }
-        return FindPathTo(start, end, cache, discarded, current);
+        return FindPathTo(start, end, sameCostCompare, cache, discarded, current);
     }
 
-    GridInfo CheckMinCostInfo(List<GridInfo> infos, out int index)
+    GridInfo CheckMinCostInfo(List<GridInfo> infos, Func<Grid, Grid, bool> sameCostCompare, out int index)
     {
         GridInfo info = null;
         index = -1;
@@ -63,6 +65,14 @@ public class GridController : MonoBehaviour
             {
                 info = _info;
                 index = i;
+            }
+            else if (info.Cost == _info.Cost && sameCostCompare != null)
+            {
+                if (sameCostCompare(info.Self, _info.Self))
+                {
+                    info = _info;
+                    index = i;
+                }
             }
         }
         return info;

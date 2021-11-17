@@ -5,7 +5,7 @@ using UnityEditor;
 using System.Linq;
 
 [CustomEditor(typeof(GridController))]
-public class GridSettingEditor : Editor
+public class GridControllerEditor : Editor
 {
     GridController self;
     SerializedProperty GridMeshProp;
@@ -14,6 +14,8 @@ public class GridSettingEditor : Editor
     SerializedProperty LinkLineBiasProp;
     SerializedProperty LinkMatProp;
     SerializedProperty StepProp;
+    SerializedProperty OffsetProp;
+    SerializedProperty StaggeredOffsetProp;
     SerializedProperty GridsProp;
     SerializedProperty LinkDataProp;
 
@@ -30,6 +32,8 @@ public class GridSettingEditor : Editor
         LinkLineBiasProp = serializedObject.FindProperty("LinkLineBias");
         LinkMatProp = serializedObject.FindProperty("LinkMat");
         StepProp = serializedObject.FindProperty("Step");
+        OffsetProp = serializedObject.FindProperty("Offset");
+        StaggeredOffsetProp = serializedObject.FindProperty("StaggeredOffset");
         GridsProp = serializedObject.FindProperty("Grids");
         LinkDataProp = serializedObject.FindProperty("LinkData");
     }
@@ -51,16 +55,11 @@ public class GridSettingEditor : Editor
         EditorGUI.indentLevel--;
         GUILayout.Space(5);
         EditorGUILayout.PropertyField(StepProp);
+        EditorGUILayout.PropertyField(OffsetProp);
+        EditorGUILayout.PropertyField(StaggeredOffsetProp);
         GUILayout.Space(10);
 
-        bool isEmpty = true;
-        for (int i = 0; i < GridsProp.arraySize; i++)
-        {
-            if (GridsProp.GetArrayElementAtIndex(i).objectReferenceValue != null)
-                isEmpty = false;
-        }
-
-        if (isEmpty)
+        if (GridsProp.arraySize == 0)
         {
             GUILayout.Space(20);
             EditorGUILayout.LabelField("Initialize:");
@@ -96,6 +95,8 @@ public class GridSettingEditor : Editor
         EditorGUILayout.PropertyField(LinkDataProp);
         EditorGUI.EndDisabledGroup();
         EditorGUI.indentLevel--;
+        if (GUILayout.Button("Clear", GUILayout.Width(EditorGUIUtility.currentViewWidth - 30)))
+            clear();
         serializedObject.ApplyModifiedProperties();
     }
 
@@ -241,7 +242,7 @@ public class GridSettingEditor : Editor
                 Undo.RecordObject(_gridTrans, "Refresh Grid");
                 Undo.RecordObject(_gridMeshFilter, "Refresh Grid");
                 Undo.RecordObject(_gridMeshRenderer, "Refresh Grid");
-                _gridTrans.localPosition = new Vector3(self.Step.x * _grid.Point.x, 0, self.Step.y * _grid.Point.y);
+                _gridTrans.localPosition = new Vector3(self.Step.x * _grid.Point.x, 0, self.Step.y * _grid.Point.y) + new Vector3(self.Offset.x * _grid.Point.y, 0, self.Offset.y * _grid.Point.x) + new Vector3(self.StaggeredOffset.x * (_grid.Point.y % 2), 0, self.StaggeredOffset.y * (_grid.Point.x % 2));
                 _gridMeshFilter.sharedMesh = self.GridMesh;
                 _gridMeshRenderer.sharedMaterial = self.GridMat;
                 EditorUtility.SetDirty(_gridTrans);
@@ -265,8 +266,8 @@ public class GridSettingEditor : Editor
                 LineRenderer _lineRenderer = lineObj.GetComponent<LineRenderer>();
                 Undo.RecordObject(_lineRenderer, "Refresh LinkLine");
                 _lineRenderer.sharedMaterial = self.LinkMat;
-                Vector3 pos0 = new Vector3(self.Step.x * point0.x, 0, self.Step.y * point0.y);
-                Vector3 pos1 = new Vector3(self.Step.x * point1.x, 0, self.Step.y * point1.y);
+                Vector3 pos0 = new Vector3(self.Step.x * point0.x, 0, self.Step.y * point0.y) + new Vector3(self.Offset.x * point0.y, 0, self.Offset.y * point0.x) + new Vector3(self.StaggeredOffset.x * (point0.y % 2), 0, self.StaggeredOffset.y * (point0.x % 2));
+                Vector3 pos1 = new Vector3(self.Step.x * point1.x, 0, self.Step.y * point1.y) + new Vector3(self.Offset.x * point1.y, 0, self.Offset.y * point1.x) + new Vector3(self.StaggeredOffset.x * (point1.y % 2), 0, self.StaggeredOffset.y * (point1.x % 2));
                 Vector3 dir = Vector3.Normalize(pos1 - pos0);
                 pos0 += dir * self.LinkLineBias;
                 pos1 -= dir * self.LinkLineBias;
@@ -291,12 +292,34 @@ public class GridSettingEditor : Editor
         }
     }
 
+    void clear()
+    {
+        for (int i = 0; i < self.Grids.Count; i++)
+        {
+            Grid _grid = self.Grids[i];
+            Undo.RecordObject(self, "Clear Grids");
+            self.Grids.RemoveAt(i);
+            i--;
+            if (_grid != null)
+                Undo.DestroyObjectImmediate(_grid.gameObject);
+        }
+        for (int i = 0; i < self.LinkData.Count; i++)
+        {
+            GridController.Link _link = self.LinkData[i];
+            if (_link.Obj != null)
+                Undo.DestroyObjectImmediate(_link.Obj);
+        }
+        Undo.RecordObject(self, "Clear LinkData");
+        self.LinkData.Clear();
+        EditorUtility.SetDirty(self);
+    }
+
     public static Grid NewGridObj(GridController controller, Vector2Int point)
     {
         GameObject obj = new GameObject(point.ToString());
         obj.transform.SetParent(controller.transform);
-        obj.transform.localPosition = new Vector3(controller.Step.x * point.x, 0, controller.Step.y * point.y);
-        obj.transform.localEulerAngles = Vector3.zero;
+        obj.transform.localPosition = new Vector3(controller.Step.x * point.x, 0, controller.Step.y * point.y) + new Vector3(controller.Offset.x * point.y, 0, controller.Offset.y * point.x) + new Vector3(controller.StaggeredOffset.x * (point.y % 2), 0, controller.StaggeredOffset.y * (point.x % 2));
+        obj.transform.localEulerAngles = Vector3.zero; 
         obj.transform.localScale = Vector3.one;
         obj.AddComponent<MeshFilter>().sharedMesh = controller.GridMesh;
         obj.AddComponent<MeshRenderer>().sharedMaterial = controller.GridMat;
@@ -326,8 +349,8 @@ public class GridSettingEditor : Editor
         line.useWorldSpace = false;
         line.sharedMaterial = controller.LinkMat;
         line.widthMultiplier = controller.LinkLineWidth;
-        Vector3 pos0 = new Vector3(controller.Step.x * point0.x, 0, controller.Step.y * point0.y);
-        Vector3 pos1 = new Vector3(controller.Step.x * point1.x, 0, controller.Step.y * point1.y);
+        Vector3 pos0 = new Vector3(controller.Step.x * point0.x, 0, controller.Step.y * point0.y) + new Vector3(controller.Offset.x * point0.y, 0, controller.Offset.y * point0.x) + new Vector3(controller.StaggeredOffset.x * (point0.y % 2), 0, controller.StaggeredOffset.y * (point0.x % 2));
+        Vector3 pos1 = new Vector3(controller.Step.x * point1.x, 0, controller.Step.y * point1.y) + new Vector3(controller.Offset.x * point1.y, 0, controller.Offset.y * point1.x) + new Vector3(controller.StaggeredOffset.x * (point1.y % 2), 0, controller.StaggeredOffset.y * (point1.x % 2));
         Vector3 dir = Vector3.Normalize(pos1 - pos0);
         pos0 += dir * controller.LinkLineBias;
         pos1 -= dir * controller.LinkLineBias;
