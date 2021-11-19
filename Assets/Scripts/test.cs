@@ -26,8 +26,12 @@ public class test : MonoBehaviour
             for (int i = 0; i < route.Count; i++)
             {
                 Grid _grid = route[i];
-                _grid.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-                Start.Controller.LinkData[Start.Controller.LinkData.FindIndex(x => x == new GridController.Link(prev.Point, _grid.Point))].Obj.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                Renderer renderer = _grid.GetComponent<Renderer>();
+                renderer.material.SetColor("_Color", Color.red);
+                renderer.material.renderQueue = 3001;
+                LinkRenderer linkRenderer = Start.Controller.LinkData[Start.Controller.LinkData.FindIndex(x => x == new GridController.Link(prev.Point, _grid.Point))].Obj.GetComponent<LinkRenderer>();
+                linkRenderer.material.SetColor("_Color", Color.red);
+                linkRenderer.material.renderQueue = 3001;
                 prev = _grid;
             }
         }
@@ -52,8 +56,12 @@ public class test : MonoBehaviour
             for (int i = 0; i < route.Count; i++)
             {
                 Grid _grid = route[i];
-                _grid.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-                Start.Controller.LinkData[Start.Controller.LinkData.FindIndex(x => x == new GridController.Link(prev.Point, _grid.Point))].Obj.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                Renderer renderer = _grid.GetComponent<Renderer>();
+                renderer.material.SetColor("_Color", Color.red);
+                renderer.material.renderQueue = 3001;
+                LinkRenderer linkRenderer = Start.Controller.LinkData[Start.Controller.LinkData.FindIndex(x => x == new GridController.Link(prev.Point, _grid.Point))].Obj.GetComponent<LinkRenderer>();
+                linkRenderer.material.SetColor("_Color", Color.red);
+                linkRenderer.material.renderQueue = 3001;
                 prev = _grid;
             }
         }
@@ -64,8 +72,16 @@ public class test : MonoBehaviour
         if (Start == null)
             return;
         for (int i = 0; i < Start.Controller.Grids.Count; i++)
-            Start.Controller.Grids[i].GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+        {
+            Renderer renderer = Start.Controller.Grids[i].GetComponent<Renderer>();
+            renderer.material.SetColor("_Color", Color.black);
+            renderer.material.renderQueue = 3000;
+        }
         for (int i = 0; i < Start.Controller.LinkData.Count; i++)
-            Start.Controller.LinkData[i].Obj.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+        {
+            LinkRenderer renderer = Start.Controller.LinkData[i].Obj.GetComponent<LinkRenderer>();
+            renderer.material.SetColor("_Color", Color.black);
+            renderer.material.renderQueue = 3000;
+        }
     }
 }

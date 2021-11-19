@@ -311,7 +311,7 @@ namespace GridEditor
                     {
                         LinkRenderer _linkRenderer = lineObj.GetComponent<LinkRenderer>();
                         Undo.RecordObject(_linkRenderer, "Refresh LinkLine");
-                        _linkRenderer.material = self.LinkMat;
+                        _linkRenderer.SetGlobalMaterial(self.LinkMat);
                         Vector3 pos0 = grid0.transform.localPosition;
                         Vector3 pos1 = grid1.transform.localPosition;
                         Vector3 dir = Vector3.Normalize(pos1 - pos0);
@@ -390,7 +390,7 @@ namespace GridEditor
             obj.transform.localEulerAngles = Vector3.zero;
             obj.transform.localScale = Vector3.one;
             LinkRenderer link = obj.AddComponent<LinkRenderer>();
-            link.material = controller.LinkMat;
+            link.SetGlobalMaterial(controller.LinkMat);
             link.Width = controller.LinkLineWidth;
             Vector3 dir = Vector3.Normalize(pos1 - pos0);
             pos0 += dir * controller.LinkLineBias;

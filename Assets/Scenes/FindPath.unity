@@ -299,12 +299,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 2, y: 0, z: 1.1}
   End: {x: 2, y: 0, z: 1.9}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 20183825}
 --- !u!4 &20183828
 Transform:
   m_ObjectHideFlags: 0
@@ -482,12 +481,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -0.9, y: 0, z: -1}
   End: {x: -0.1, y: 0, z: -1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 109720217}
 --- !u!4 &109720220
 Transform:
   m_ObjectHideFlags: 0
@@ -582,12 +580,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 1, y: 0, z: 1.1}
   End: {x: 1, y: 0, z: 1.9}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 166941969}
 --- !u!4 &166941972
 Transform:
   m_ObjectHideFlags: 0
@@ -682,12 +679,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 0, y: 0, z: -0.9}
   End: {x: 0, y: 0, z: -0.1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 183722231}
 --- !u!4 &183722234
 Transform:
   m_ObjectHideFlags: 0
@@ -878,12 +874,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -0.9, y: 0, z: -2}
   End: {x: -0.1, y: 0, z: -2}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 258691672}
 --- !u!4 &258691675
 Transform:
   m_ObjectHideFlags: 0
@@ -978,12 +973,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 1.1, y: 0, z: 1}
   End: {x: 1.9, y: 0, z: 1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 363318324}
 --- !u!4 &363318327
 Transform:
   m_ObjectHideFlags: 0
@@ -1078,12 +1072,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -1.9, y: 0, z: 0}
   End: {x: -1.1, y: 0, z: 0}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 364807938}
 --- !u!4 &364807941
 Transform:
   m_ObjectHideFlags: 0
@@ -1178,12 +1171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -1.9, y: 0, z: -1}
   End: {x: -1.1, y: 0, z: -1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 369438368}
 --- !u!4 &369438371
 Transform:
   m_ObjectHideFlags: 0
@@ -1278,12 +1270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 2, y: 0, z: 0.1}
   End: {x: 2, y: 0, z: 0.9}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 394328914}
 --- !u!4 &394328917
 Transform:
   m_ObjectHideFlags: 0
@@ -1504,7 +1495,7 @@ GameObject:
   - component: {fileID: 461571404}
   - component: {fileID: 461571403}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: enemy0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1679,12 +1670,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 0.1, y: 0, z: 0}
   End: {x: 0.9, y: 0, z: 0}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 512813767}
 --- !u!4 &512813770
 Transform:
   m_ObjectHideFlags: 0
@@ -1875,12 +1865,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 0.1, y: 0, z: 2}
   End: {x: 0.9, y: 0, z: 2}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 528918770}
 --- !u!4 &528918773
 Transform:
   m_ObjectHideFlags: 0
@@ -1975,12 +1964,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 0, y: 0, z: -1.9}
   End: {x: 0, y: 0, z: -1.1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 578469342}
 --- !u!4 &578469345
 Transform:
   m_ObjectHideFlags: 0
@@ -2075,12 +2063,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -1, y: 0, z: -0.9}
   End: {x: -1, y: 0, z: -0.1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 600857164}
 --- !u!4 &600857167
 Transform:
   m_ObjectHideFlags: 0
@@ -2175,12 +2162,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -2, y: 0, z: 0.1}
   End: {x: -2, y: 0, z: 0.9}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 635264716}
 --- !u!4 &635264719
 Transform:
   m_ObjectHideFlags: 0
@@ -2467,12 +2453,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -0.9, y: 0, z: 0}
   End: {x: -0.1, y: 0, z: 0}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 728820121}
 --- !u!4 &728820124
 Transform:
   m_ObjectHideFlags: 0
@@ -2498,7 +2483,7 @@ GameObject:
   - component: {fileID: 744067885}
   - component: {fileID: 744067884}
   m_Layer: 0
-  m_Name: Grids (1)
+  m_Name: Grids
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3052,7 +3037,7 @@ GameObject:
   - component: {fileID: 878223563}
   - component: {fileID: 878223562}
   m_Layer: 0
-  m_Name: Capsule (1)
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3229,12 +3214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 1.1, y: 0, z: -1}
   End: {x: 1.9, y: 0, z: -1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 878556277}
 --- !u!4 &878556280
 Transform:
   m_ObjectHideFlags: 0
@@ -3329,12 +3313,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -2, y: 0, z: -0.9}
   End: {x: -2, y: 0, z: -0.1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 884669977}
 --- !u!4 &884669980
 Transform:
   m_ObjectHideFlags: 0
@@ -3429,12 +3412,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -1, y: 0, z: 0.1}
   End: {x: -1, y: 0, z: 0.9}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 943749289}
 --- !u!4 &943749292
 Transform:
   m_ObjectHideFlags: 0
@@ -3718,12 +3700,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 0.1, y: 0, z: -1}
   End: {x: 0.9, y: 0, z: -1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1032407010}
 --- !u!4 &1032407013
 Transform:
   m_ObjectHideFlags: 0
@@ -3818,12 +3799,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 2, y: 0, z: -0.9}
   End: {x: 2, y: 0, z: -0.1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1061312307}
 --- !u!4 &1061312310
 Transform:
   m_ObjectHideFlags: 0
@@ -3918,12 +3898,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -1, y: 0, z: -1.9}
   End: {x: -1, y: 0, z: -1.1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1097843689}
 --- !u!4 &1097843692
 Transform:
   m_ObjectHideFlags: 0
@@ -4018,12 +3997,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -1, y: 0, z: 1.1}
   End: {x: -1, y: 0, z: 1.9}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1122186485}
 --- !u!4 &1122186488
 Transform:
   m_ObjectHideFlags: 0
@@ -4435,7 +4413,7 @@ GameObject:
   - component: {fileID: 1266077221}
   - component: {fileID: 1266077220}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4531,7 +4509,7 @@ GameObject:
   - component: {fileID: 1297164362}
   - component: {fileID: 1297164361}
   m_Layer: 0
-  m_Name: Sphere (2)
+  m_Name: enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4898,12 +4876,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 1.1, y: 0, z: 2}
   End: {x: 1.9, y: 0, z: 2}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1410540712}
 --- !u!4 &1410540715
 Transform:
   m_ObjectHideFlags: 0
@@ -4932,7 +4909,7 @@ GameObject:
   - component: {fileID: 1437055915}
   - component: {fileID: 1437055914}
   m_Layer: 0
-  m_Name: Sphere (3)
+  m_Name: enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5107,12 +5084,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 1.1, y: 0, z: -2}
   End: {x: 1.9, y: 0, z: -2}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1440658741}
 --- !u!4 &1440658744
 Transform:
   m_ObjectHideFlags: 0
@@ -5207,12 +5183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -2, y: 0, z: 1.1}
   End: {x: -2, y: 0, z: 1.9}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1442153834}
 --- !u!4 &1442153837
 Transform:
   m_ObjectHideFlags: 0
@@ -5403,12 +5378,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -1.9, y: 0, z: -2}
   End: {x: -1.1, y: 0, z: -2}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1470273853}
 --- !u!4 &1470273856
 Transform:
   m_ObjectHideFlags: 0
@@ -5503,12 +5477,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -1.9, y: 0, z: 2}
   End: {x: -1.1, y: 0, z: 2}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1493512106}
 --- !u!4 &1493512109
 Transform:
   m_ObjectHideFlags: 0
@@ -5603,12 +5576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -0.9, y: 0, z: 2}
   End: {x: -0.1, y: 0, z: 2}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1519576210}
 --- !u!4 &1519576213
 Transform:
   m_ObjectHideFlags: 0
@@ -5799,12 +5771,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -1.9, y: 0, z: 1}
   End: {x: -1.1, y: 0, z: 1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1627251380}
 --- !u!4 &1627251383
 Transform:
   m_ObjectHideFlags: 0
@@ -5995,12 +5966,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -0.9, y: 0, z: 1}
   End: {x: -0.1, y: 0, z: 1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1650294972}
 --- !u!4 &1650294975
 Transform:
   m_ObjectHideFlags: 0
@@ -6095,12 +6065,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 1, y: 0, z: -0.9}
   End: {x: 1, y: 0, z: -0.1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1674882283}
 --- !u!4 &1674882286
 Transform:
   m_ObjectHideFlags: 0
@@ -6195,12 +6164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 2, y: 0, z: -1.9}
   End: {x: 2, y: 0, z: -1.1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1719049329}
 --- !u!4 &1719049332
 Transform:
   m_ObjectHideFlags: 0
@@ -6295,12 +6263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 1.1, y: 0, z: 0}
   End: {x: 1.9, y: 0, z: 0}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1733695417}
 --- !u!4 &1733695420
 Transform:
   m_ObjectHideFlags: 0
@@ -6491,12 +6458,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 0, y: 0, z: 1.1}
   End: {x: 0, y: 0, z: 1.9}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1757041210}
 --- !u!4 &1757041213
 Transform:
   m_ObjectHideFlags: 0
@@ -6687,12 +6653,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 0, y: 0, z: 0.1}
   End: {x: 0, y: 0, z: 0.9}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1799513477}
 --- !u!4 &1799513480
 Transform:
   m_ObjectHideFlags: 0
@@ -6787,12 +6752,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 0.1, y: 0, z: -2}
   End: {x: 0.9, y: 0, z: -2}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1804157216}
 --- !u!4 &1804157219
 Transform:
   m_ObjectHideFlags: 0
@@ -6887,12 +6851,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: -2, y: 0, z: -1.9}
   End: {x: -2, y: 0, z: -1.1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1866818131}
 --- !u!4 &1866818134
 Transform:
   m_ObjectHideFlags: 0
@@ -7083,12 +7046,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 1, y: 0, z: 0.1}
   End: {x: 1, y: 0, z: 0.9}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1932038039}
 --- !u!4 &1932038042
 Transform:
   m_ObjectHideFlags: 0
@@ -7183,12 +7145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 0.1, y: 0, z: 1}
   End: {x: 0.9, y: 0, z: 1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 1935179903}
 --- !u!4 &1935179906
 Transform:
   m_ObjectHideFlags: 0
@@ -7283,12 +7244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e3da2815eb2344bfd724010c924e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
-  axis: 1
+  Material: {fileID: 2100000, guid: 7ace3668541030e48a736eead247f52b, type: 2}
   Start: {x: 1, y: 0, z: -1.9}
   End: {x: 1, y: 0, z: -1.1}
+  axis: 1
   Width: 0.5
-  renderer: {fileID: 2031672261}
 --- !u!4 &2031672264
 Transform:
   m_ObjectHideFlags: 0

@@ -8,10 +8,12 @@ namespace GridEditor
     [ExecuteInEditMode]
     public class LinkRenderer : MonoBehaviour
     {
-        public Material material;
-        public Axis axis = Axis.Y;
+        public Material material => renderer.material;
+
+        [SerializeField] Material Material;
         public Vector3 Start;
         public Vector3 End;
+        public Axis axis = Axis.Y;
         public float Width = 1;
 
         Transform trans;
@@ -30,6 +32,7 @@ namespace GridEditor
             end = End;
             width = Width;
             prevAxis = axis;
+            check();
         }
 
         private void OnEnable()
@@ -39,9 +42,9 @@ namespace GridEditor
 
         private void Update()
         {
-            if (mat != material)
+            if (mat != Material)
             {
-                mat = material;
+                mat = Material;
                 renderer.sharedMaterial = mat;
             }
             if (start != Start || end != End || width != Width || prevAxis != axis)
@@ -52,6 +55,11 @@ namespace GridEditor
                 prevAxis = axis;
                 refresh();
             }
+        }
+
+        public void SetGlobalMaterial(Material mat)
+        {
+            Material = mat;
         }
 
         public void SetPosition(Vector3 start, Vector3 end, bool worldSpace = false)
