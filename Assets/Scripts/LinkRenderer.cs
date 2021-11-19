@@ -17,7 +17,7 @@ namespace GridEditor
         Transform trans;
         Mesh mesh;
         MeshFilter meshFilter;
-        new public MeshRenderer renderer;
+        new MeshRenderer renderer;
         Material mat;
         Vector3 start, end;
         float width;
