@@ -28,22 +28,23 @@ namespace GridEditor
             diagonalStraightRatio = ratio;
         }
 
+        /// <param name="extraPushRule">Used as an extra to compare if the grid is available</param>
         /// <param name="sameCostCompare">priority mode, compare grid info of the same cost. (prev, now)</param>
-        public List<Grid> FindPathTo(Grid start, Grid end, Func<GridInfo, GridInfo, GridInfo> sameCostCompare = null)
+        public List<Grid> FindPathTo(Grid start, Grid end, Func<GridInfo, bool> extraPushRule = null, Func<GridInfo, GridInfo, GridInfo> sameCostCompare = null)
         {
             if (!Grids.Contains(start) || !Grids.Contains(end))
                 return null;
             HashSet<Vector2Int> discarded = new HashSet<Vector2Int>();
             List<GridInfo> cache = new List<GridInfo>();
             discarded.Add(start.Point);
-            return FindPathTo(new GridInfo(start, end), end, sameCostCompare, cache, discarded);
+            return FindPathTo(new GridInfo(start, end), end, extraPushRule, sameCostCompare, cache, discarded);
         }
 
-        List<Grid> FindPathTo(GridInfo start, Grid end, Func<GridInfo, GridInfo, GridInfo> sameCostCompare, List<GridInfo> cache, HashSet<Vector2Int> discarded, GridInfo current = null)
+        List<Grid> FindPathTo(GridInfo start, Grid end, Func<GridInfo, bool> extraPushRule, Func<GridInfo, GridInfo, GridInfo> sameCostCompare, List<GridInfo> cache, HashSet<Vector2Int> discarded, GridInfo current = null)
         {
             if (current == null)
                 current = start;
-            PushNeighborhood(current, end, sameCostCompare, cache, discarded);
+            PushNeighborhood(current, end, extraPushRule, sameCostCompare, cache, discarded);
             if (cache.Count == 0)
                 return null;
             current = CheckMinCostInfo(end, cache, sameCostCompare, out int index);
@@ -60,7 +61,7 @@ namespace GridEditor
                 }
                 return route;
             }
-            return FindPathTo(start, end, sameCostCompare, cache, discarded, current);
+            return FindPathTo(start, end, extraPushRule, sameCostCompare, cache, discarded, current);
         }
 
         GridInfo CheckMinCostInfo(Grid end, List<GridInfo> infos, Func<GridInfo, GridInfo, GridInfo> sameCostCompare, out int index)
@@ -87,28 +88,28 @@ namespace GridEditor
             return info;
         }
 
-        void PushNeighborhood(GridInfo current, Grid end, Func<GridInfo, GridInfo, GridInfo> sameCostCompare, List<GridInfo> cache, HashSet<Vector2Int> discarded)
+        void PushNeighborhood(GridInfo current, Grid end, Func<GridInfo, bool> extraPushRule, Func<GridInfo, GridInfo, GridInfo> sameCostCompare, List<GridInfo> cache, HashSet<Vector2Int> discarded)
         {
             Vector2Int forwardSeek = current.Self.Point - Vector2Int.down;
-            PushGridInfo(forwardSeek, current, end, sameCostCompare, cache, discarded);
+            PushGridInfo(forwardSeek, current, end, extraPushRule, sameCostCompare, cache, discarded);
             Vector2Int backSeek = current.Self.Point + Vector2Int.down;
-            PushGridInfo(backSeek, current, end, sameCostCompare, cache, discarded);
+            PushGridInfo(backSeek, current, end, extraPushRule, sameCostCompare, cache, discarded);
             Vector2Int rightSeek = current.Self.Point - Vector2Int.left;
-            PushGridInfo(rightSeek, current, end, sameCostCompare, cache, discarded);
+            PushGridInfo(rightSeek, current, end, extraPushRule, sameCostCompare, cache, discarded);
             Vector2Int leftSeek = current.Self.Point + Vector2Int.left;
-            PushGridInfo(leftSeek, current, end, sameCostCompare, cache, discarded);
+            PushGridInfo(leftSeek, current, end, extraPushRule, sameCostCompare, cache, discarded);
 
             Vector2Int forwardRightSeek = current.Self.Point - Vector2Int.down - Vector2Int.left;
-            PushGridInfo(forwardRightSeek, current, end, sameCostCompare, cache, discarded);
+            PushGridInfo(forwardRightSeek, current, end, extraPushRule, sameCostCompare, cache, discarded);
             Vector2Int forwardLeftSeek = current.Self.Point - Vector2Int.down + Vector2Int.left;
-            PushGridInfo(forwardLeftSeek, current, end, sameCostCompare, cache, discarded);
+            PushGridInfo(forwardLeftSeek, current, end, extraPushRule, sameCostCompare, cache, discarded);
             Vector2Int backRightSeek = current.Self.Point + Vector2Int.down - Vector2Int.left;
-            PushGridInfo(backRightSeek, current, end, sameCostCompare, cache, discarded);
+            PushGridInfo(backRightSeek, current, end, extraPushRule, sameCostCompare, cache, discarded);
             Vector2Int backLeftSeek = current.Self.Point + Vector2Int.down + Vector2Int.left;
-            PushGridInfo(backLeftSeek, current, end, sameCostCompare, cache, discarded);
+            PushGridInfo(backLeftSeek, current, end, extraPushRule, sameCostCompare, cache, discarded);
         }
 
-        void PushGridInfo(Vector2Int point, GridInfo prev, Grid end, Func<GridInfo, GridInfo, GridInfo> sameCostCompare, List<GridInfo> cache, HashSet<Vector2Int> discarded)
+        void PushGridInfo(Vector2Int point, GridInfo prev, Grid end, Func<GridInfo, bool> extraPushRule, Func<GridInfo, GridInfo, GridInfo> sameCostCompare, List<GridInfo> cache, HashSet<Vector2Int> discarded)
         {
             if (discarded.Contains(point) || !LinkData.Contains(new Link(point, prev.Self.Point)))
                 return;
@@ -116,6 +117,8 @@ namespace GridEditor
             if (grid == null)
                 return;
             GridInfo info = new GridInfo(grid, prev, end);
+            if (extraPushRule != null && !extraPushRule(info))
+                return;
             int _index = cache.FindIndex(x => x.Self.Point == point);
             
             if (_index < 0)

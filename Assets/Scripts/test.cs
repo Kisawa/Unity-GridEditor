@@ -41,7 +41,7 @@ public class test : MonoBehaviour
                 return;
             clear();
             Start.Controller.SetDiagonalStraightRatio(1);
-            List<Grid> route = Start.Controller.FindPathTo(Start, End, (x, y) =>
+            List<Grid> route = Start.Controller.FindPathTo(Start, End, null, (x, y) =>
             {
                 if (testEnemy.EnemyStandGrids.Contains(x.Self))
                     return x;
