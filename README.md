@@ -1,6 +1,7 @@
 # Unity-GridEditor
 A simple 2D grid game editor, all operations support undo or redo.  
-This is the initial demo version, we have a game already implemented 3D grid editing and pathfinding, I will update it here sometime in the future(maybe not)
+This is the initial demo version, we have a game already implemented 3D grid editing and pathfinding, I will update it here sometime in the future(maybe not),like this:
+![image](https://user-images.githubusercontent.com/71002504/162134047-f82374bd-3fb3-4f88-9059-e4a36f899011.png)  
 ****
 ## Core:  
 ![image](https://user-images.githubusercontent.com/71002504/161999873-2da7ca50-875b-48f3-94bc-d20954aa17b3.png)
